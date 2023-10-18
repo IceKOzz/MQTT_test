@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -24,9 +23,6 @@
         <div id="unity-build-title">New Unity Project</div>
       </div>
     </div>
-
-    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -35,11 +31,6 @@
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
-
-
-      var client;
-
-
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -68,9 +59,9 @@
       var buildUrl = "Build";
       var loaderUrl = buildUrl + "/webBuild.loader.js";
       var config = {
-        dataUrl: buildUrl + "/webBuild.data.gz",
-        frameworkUrl: buildUrl + "/webBuild.framework.js.gz",
-        codeUrl: buildUrl + "/webBuild.wasm.gz",
+        dataUrl: buildUrl + "/webBuild.data.unityweb",
+        frameworkUrl: buildUrl + "/webBuild.framework.js.unityweb",
+        codeUrl: buildUrl + "/webBuild.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "New Unity Project",
@@ -116,8 +107,6 @@
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
-                //unityInstance
-                window.unityInstance = unityInstance
                 fullscreenButton.onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };

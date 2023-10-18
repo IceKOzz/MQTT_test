@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
+    <iframe width="560" height="315" src="https://icekozz.github.io/MQTT_test/" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
@@ -35,7 +37,10 @@
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
+
       var client;
+
+
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -62,11 +67,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/WebMQTT_Js_Build.loader.js";
+      var loaderUrl = buildUrl + "/webBuild.loader.js";
       var config = {
-        dataUrl: buildUrl + "/WebMQTT_Js_Build.data.unityweb",
-        frameworkUrl: buildUrl + "/WebMQTT_Js_Build.framework.js.unityweb",
-        codeUrl: buildUrl + "/WebMQTT_Js_Build.wasm.unityweb",
+        dataUrl: buildUrl + "/webBuild.data.gz",
+        frameworkUrl: buildUrl + "/webBuild.framework.js.gz",
+        codeUrl: buildUrl + "/webBuild.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "New Unity Project",
@@ -123,8 +128,7 @@
             };
 
       document.body.appendChild(script);
-    
-    
+
     </script>
   </body>
 </html>
